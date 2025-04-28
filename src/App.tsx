@@ -1,13 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import { links } from "./constants/Links";
+import { useGetProductQuery } from "./store/api/product";
 
 const App = () => {
+  const { data, isLoading } = useGetProductQuery();
+  console.log(data);
+  
   return (
-    <Routes>
-      {links.map((link) => (
-        <Route path={link.link} element={link.el} />
-      ))}
-    </Routes>
+    <div className="blpock">
+      {isLoading ? (
+        <h1>load...</h1>
+      ) : (
+        data?.data.map((el) => <h1>{el.title}</h1>)
+      )}
+    </div>
   );
 };
 

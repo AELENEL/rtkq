@@ -1,7 +1,9 @@
+import HomePage from "../components/layout/pages/HomePage";
+
 export const links = [
   {
     link: "/",
-    el: "",
-    title: "",
+    el: <HomePage />,
+    title: "home",
   },
 ];
